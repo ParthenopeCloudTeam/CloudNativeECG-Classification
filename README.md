@@ -82,6 +82,12 @@ In this project we aim to develope a cloud native solution for real-time arrhyth
 
 <p align="justify">
 We employed two CNN architectures
+<p align="center">
+    <img src="media/m2.png" height="700">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="media/m3.png" height="700">
+    <br>
+</p>
 </p>
 
 
