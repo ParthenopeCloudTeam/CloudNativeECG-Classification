@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ECG Evaluation - Result</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-color">
+
+    <div class="img-wrapper">
+        <img class="ecg-plot-figure" id="picture" src="data:image/jpeg;base64,{{ img_data }}" alt="ecg plot">
+    </div>
+    <div class="big-text">
+        <h1>ECG Evaluation</h1>
+    </div>
+    <div class="text" style="display: flex;">
+        <h2>Your ECG file has been evaluated.</h2>
+    </div>
+
+
+    <div class="buttons-container">
+        <form action="/">
+            <button class="btn" type="submit" onclick="clearSession()">Home</button>
+        </form>
+        <a href="/{{tax_code}}/download">
+            <button class="btn">Download Excel File</button>
+        </a>
+    </div>
+    <script>
+        function clearSession() {
+            sessionStorage.clear();
+        }
+    </script>
+</div>
+{% endblock %}

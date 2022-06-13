@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ECG Evaluation</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-color">
+    <div id="load"></div>
+    <div class="big-text">
+        <h1>ECG Evaluation</h1>
+    </div>
+    <div class="text">
+        <h2>Choose an ECG file from your computer.</h2>
+    </div>
+    <div class="load-file-wrapper">
+        <form method=post enctype=multipart/form-data>
+            <label class="custom-field one">
+                <input type="text" name="tax_code" placeholder=" " required />
+                <span class="placeholder">Tax Code</span>
+            </label>
+
+            <br><br>
+            <input id="actual-btn" type=file name=file accept=".mat" required hidden>
+            <label class="upload-label" for="actual-btn">Choose File</label>
+            <span id="file-chosen">No file chosen</span>
+            <br>
+            <div class="home-button-container">
+                <input class="btn" type=submit value=Submit onclick="loadingFunc()" style="
+            margin-left: 4vh;
+        ">
+            </div>
+        </form>
+        <script>
+            const actualBtn = document.getElementById('actual-btn');
+
+            const fileChosen = document.getElementById('file-chosen');
+
+            actualBtn.addEventListener('change', function () {
+                fileChosen.textContent = this.files[0].name
+            })
+        </script>
+    </div>
+</div>
+
+</div>
+{% endblock %}

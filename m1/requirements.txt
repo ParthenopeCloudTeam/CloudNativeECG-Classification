@@ -1,0 +1,12 @@
+# requirements.txt
+flask
+scipy
+numpy
+matplotlib
+openpyxl
+gunicorn
+flask-wtf
+google
+google-cloud
+google-cloud-pubsub
+google-cloud-storage

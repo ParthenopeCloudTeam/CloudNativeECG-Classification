@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>ECG Evaluation - Result</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-color">
+    <div class="img-wrapper">
+        <img class="gif" src="/static/css/img/Spinner.gif">
+    </div>
+    <div class="big-text">
+        <h1>ECG Evaluation</h1>
+    </div>
+    <div class="text" style="display: flex;">
+        <h2>Your ECG file is being evaluated...</h2>
+    </div>
+    <div class="button-container">
+        <form action="" method="get">
+            <button class="btn" type="submit">Request Result</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
