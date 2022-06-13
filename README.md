@@ -40,12 +40,6 @@ Inserire abstract
     <br />
 </p>
 
-<h5 align="center">Inference test on a 6 seconds scene (2 windows):</h5>
-
-<p align="center">
-    <img src="media/inference.gif" width="576">
-    <br>
-</p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -88,14 +82,7 @@ In this project we aim to develope a cloud native solution for real-time arrhyth
 ### Proposed models
 
 <p align="justify">
-Researches show that LSTM Autoencoders and similar models led to promising results in detecting anomalous temporal events in a semi-supervised manner. The idea of training a model with only "normal events" is important because, in nature, abnormal instances occur very rarely, therefore the acquirement of such data is expensive.
-Hence the base kind of model used for this study is an Autoencoder with LSTM layers as its elementary units as showed in the figure below. Throughout the model selection phase various model architectures have been tried and tested in order to find the best one.
-<p align="center">
-    <img src="media/architecture.png" width="650">
-    <br>
-</p>
-
-We proposed, in our study, different shallow and deep models. Better performance were reached with shallow models with few units per layer, e.g. an autoencoder with [63, 32] - [32, 64] architecture, as in the figure.
+We employed two CNN architectures
 </p>
 
 
