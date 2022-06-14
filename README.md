@@ -75,7 +75,7 @@ Inserire abstract
 
 <p align="justify">
 In this project we aim to develope a cloud native solution for real-time arrhythmia classification. We took inspiration from the deep learning model presented in
-[this paper](https://www.nature.com/articles/s41591-018-0268-3) with the addition of an extra classification stage; at first, our model looks for the presence of noise in an input ecg signal. If said signal is clean, it will be further evaluated in another stage, where our model classifies the signal in four possible classes of arrythmia. The cloud architecture consists of three stateless microservices capable of communicating with eachother.
+[this paper](https://www.nature.com/articles/s41591-018-0268-3) with the addition of an extra classification stage; at first, our model looks for the presence of noise in an input ecg signal. If said signal is clean, it will be further evaluated in another stage, where our model classifies the signal in four possible classes of arrythmia. The cloud architecture consists of three stateless microservices capable of communicating with each other.
 </p>
 
 ### Proposed models
