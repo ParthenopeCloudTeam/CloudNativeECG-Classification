@@ -58,19 +58,15 @@ We run benchmarks on both our cloud solution and a local hosted equivalent to as
         <li><a href="#proposed-models">Proposed Models</a></li>
       </ul>
       <ul>
+        <li><a href="#cloud-technologies">Cloud Technologies</a></li>
+      </ul>
+      <ul>
         <li><a href="#frameworks">Frameworks</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#code-structure">Code structure</a></li>
-      </ul>
-      <ul>
-        <li><a href="#dataset-structure">Dataset structure</a></li>
-      </ul>
     </li>
-    <li><a href="#contacts">Contacts</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
