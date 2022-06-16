@@ -100,9 +100,6 @@ The models are structured as follows (model graphs generated with <a href=https:
 </p>
 
 ### Cloud Technologies
-
-<img src="media/Diagram.png" alt="Diagram" width="700">
-
 We opted to use a Platform-as-a-Service (PaaS) as it offers a ready-to-use cost efficient solution with the caveat of having less fine tuned control.
 The PaaS of our choice is Google Cloud Platform, as it offers a plethora of services for developers. The most crucial one being Google Cloud Run,
 a serverless model that can run and automatically manage containers thanks to the under the hood Kubernetes layer. This setup perfectly fits our needs
@@ -112,6 +109,9 @@ Microservices are an architectural style for developing applications: they allow
 This leads to simpler scalability and optimization, which is exactly what we are looking for. The microservices communicate with each other in a feed-forward fashion thanks to the pub/sub protocol in conjunction with the usage of Eventarc triggers. 
 The aforementioned approach decouples clients from the server (they won't need to wait for the receiver to be available), and this separation is further enhanced by triggers' way of message delivery: the push method. 
 Clients will receive messages as soon as they are ready, without the necessity of a synchronous wait.
+<p align="center">
+<img src="media/Diagram.png" alt="Diagram" width="700">
+</p>
 
 ### Frameworks
 
