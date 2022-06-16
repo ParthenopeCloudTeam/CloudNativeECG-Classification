@@ -36,7 +36,14 @@
   <h3 align="center">Abstract</h3>
 
   <p align="justify">
-Inserire abstract
+<i>
+Nowdays, cardiological tools are only capable of offering a statistical report which does not offer valuable help to recognize common arrhythmias. Furthermore, existing AI-driven solutions require in-house implementation and constant maintenance. 
+This paper presents a cloud native application running on Google Cloud Platform which provides an intuitive web interface. In this way, continuous management is decoupled from the public structure altogether, making the cloud approach more appealing. 
+Having an always available deep learning solution for heart diseases analysis can be useful for a quick and preemptive patient examination before the actual medical input.
+Our contribution is the development of a cloud native solution, making the service highly scalable and resilient, as opposed to in-house configurations.
+We propose a three stateless microservices architecture that hierarchically manages the data flow and the inference, the latter being carried on by a two stage neural network which firstly handles the noise separation and secondly the classification. 
+We run benchmarks on both our cloud solution and a local hosted equivalent to assess scalability and performance differences.
+</i>
     <br />
 </p>
 
@@ -75,13 +82,15 @@ Inserire abstract
 
 <p align="justify">
 In this project we aim to develope a cloud native solution for real-time arrhythmia classification. We took inspiration from the deep learning model presented in
-[this paper](https://www.nature.com/articles/s41591-018-0268-3) with the addition of an extra classification stage; at first, our model looks for the presence of noise in an input ecg signal. If said signal is clean, it will be further evaluated in another stage, where our model classifies the signal in four possible classes of arrythmia. The cloud architecture consists of three stateless microservices capable of communicating with each other.
+<a href=https://www.nature.com/articles/s41591-018-0268-3>this paper</a>  with the addition of an extra classification stage; at first, our model looks for the presence of noise in an input ecg signal. If said signal is clean, it will be further evaluated in another stage, where our model classifies the signal in four possible classes of arrythmia. The cloud architecture consists of three stateless microservices capable of communicating with each other.
 </p>
 
 ### Proposed models
 
 <p align="justify">
-We employed two CNN architectures
+The ECG arrhythmia detection task is a sequence-to-sequence task which takes as input an ECG signal $x = [x_1 \ldots x_k]$ and outputs a sequence of labels $r = [r_1 \ldots r_k]$, such that each $r_i$ can take on one of $m$ different rhythm classes. Each output label corresponds to a segment of the input. Together the output labels cover the full sequence. However, this phase is executed after a preliminary classification step, which aims to look for noise presence in the signal.
+We use a convolutional neural network for both the binary and the sequence-to-sequence learning task. The networks take as input a time-series of raw ECG signal, and output a binary and a sequence of labels predictions, respectively.
+The models are structured as follows (model graphs generated with <a href=https://github.com/lutzroeder/netron> this tool</a>):
 <p align="center">
     <img src="media/m2.png" height="700">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -90,92 +99,48 @@ We employed two CNN architectures
 </p>
 </p>
 
+### Cloud Technologies
 
-### Reconstruction error
-Illustration of different learning behaviours in the movements with MSE and MAE. 
-<p align="center">
-    <img src="media/reconstructions.gif" width="576">
-    <br>
-</p>
+<img src="media/Diagram.png" alt="Diagram" width="700">
+
+We opted to use a Platform-as-a-Service (PaaS) as it offers a ready-to-use cost efficient solution with the caveat of having less fine tuned control.
+The PaaS of our choice is Google Cloud Platform, as it offers a plethora of services for developers. The most crucial one being Google Cloud Run,
+a serverless model that can run and automatically manage containers thanks to the under the hood Kubernetes layer. This setup perfectly fits our needs
+of an autoscaling and on-demand server infrastructure. Furthermore, Cloud Run can be configured to support multiple concurrent requests on a single container instance which allows us to save time and cost.
+We built three containers for our app through the usage of Docker. Each container holds a microservice which is then deployed to a GCR service.
+Microservices are an architectural style for developing applications: they allow a large application to be decomposed into independent constituent parts, with each part having its own realm of responsibility. 
+This leads to simpler scalability and optimization, which is exactly what we are looking for. The microservices communicate with each other in a feed-forward fashion thanks to the pub/sub protocol in conjunction with the usage of Eventarc triggers. 
+The aforementioned approach decouples clients from the server (they won't need to wait for the receiver to be available), and this separation is further enhanced by triggers' way of message delivery: the push method. 
+Clients will receive messages as soon as they are ready, without the necessity of a synchronous wait.
 
 ### Frameworks
 
-* [Keras/Tensorflow 2.0](https://www.tensorflow.org/)
-* [Python 3.7](https://www.python.org/downloads/release/python-370/)
-* [Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+* [Keras 2.3.1/Tensorflow 1.14](https://www.tensorflow.org/)
+* [Python 3.6](https://www.python.org/downloads/release/python-360/)
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+* [Gunicorn](https://gunicorn.org/)
+* [Google Cloud Run](https://cloud.google.com/)
+* [Docker](https://www.docker.com/)
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-Istructions for code and data are down below.
-
-
-<!-- CODE STRUCTURE -->
-### Code structure
-
+Each folder is associated with a dockerfile and a file of requirements. Build each microservice by running `docker build .` inside the respective folder.
+ 
 ```
-src
-├── draw_skeletons.py
-│   ──> contains procedures for generating images/videos from skeleton data
-├── preprocessing.py
-│   ──> contains all the preprocessing functions
-├── model_and_training.py
-│   ──> contains the model architectures and training procedure
-├── evaluation.py 
-│   ──> contains all the metrics and functions used for evaluating the model
+├── M1
+│   ──> contains web interface src code
+├── M2
+│   ──> contains Noise/non-Noise binary classifier src code
+├── M3
+│   ──> contains Arrhythmia classifier src code
 ```
-
-<!-- DATASET STRUCTURE -->
-### Dataset structure
-
-<p align="justify">
-Before training, you have to set up the dataset directory in a precise manner. The preprocessing stage takes two different datasets, the train set and the test set. Each one is a directory of directories, and the preprocessing procedure scans every directory in alphabetical order or the order speicified in the code (the order of the list of string that represents the name of directories), collecting all the json.
-</p>
-
-```
-Dataset
-├── Train-Set
-│   ├── Dir_1
-│   │   └── json data
-│   ├── ...
-│   │   └── ...
-│   └── Dir_N
-│       ├── json data
-├── Test-Set
-│   ├── Dir_1
-│   │   └── json data
-│   ├── ...
-│   │   └── ...
-│   └── Dir_N
-│       ├── json data
-```
-
-<!-- CONTACT -->
-## Contacts
-
-* Andrea: [LinkedIn][linkedin-andrea-url]
-* Antonio: [LinkedIn][linkedin-antonio-url]
-
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-
-* [Thomas Gatt](https://ieeexplore.ieee.org/document/8868795)
-
-
-
-
+We are grateful for the support of the University of Naples “Parthenope”, Department of Science and Technologies, Research Computing Facilities ([link](https://rcf.uniparthenope.it)) for assistance with the calculations carried out in this work.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/ParthenopeDeepTeam/Fall-Detection-using-LSTM-Autoencoder/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/ParthenopeDeepTeam/Fall-Detection-using-LSTM-Autoencoder/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-andrea-url]: https://www.linkedin.com/in/andrea-lombardi/
-[linkedin-antonio-url]: https://www.linkedin.com/in/antonio-junior-spoleto/
+
