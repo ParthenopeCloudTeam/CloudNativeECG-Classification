@@ -112,7 +112,7 @@ Clients will receive messages as soon as they are ready, without the necessity o
 ### Frameworks
 
 * [Keras 2.3.1](https://www.tensorflow.org/)
-* Tensorflow 1.14](https://www.tensorflow.org/)
+* [Tensorflow 1.14](https://www.tensorflow.org/)
 * [Python 3.6](https://www.python.org/downloads/release/python-360/)
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 * [Gunicorn](https://gunicorn.org/)
