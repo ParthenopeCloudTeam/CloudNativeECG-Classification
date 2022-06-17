@@ -97,7 +97,12 @@ We run benchmarks on both our cloud solution and a local hosted equivalent to as
     <li>
       <a href="#getting-started">Getting Started</a>
     </li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+    <li>
+      <a href="#acknowledgements">Acknowledgements</a>
+    </li>
   </ol>
 </details>
 
@@ -162,6 +167,16 @@ Each folder is associated with a dockerfile and a file of requirements. Build ea
 ├── M3
 │   ──> contains Arrhythmia classifier src code
 ```
+
+<!-- CONTACT -->
+## Contact
+
+* Marco Di Lullo - marcodilullo2714@gmail.com - [LinkedIn](https://www.linkedin.com/in/marco-di-lullo-32a9241a2) 
+* Salvatore Alberto Gicchino - g.salvatore93@gmail.com  - [LinkedIn](https://www.linkedin.com/in/salvatore-gicchino-189566238)
+* Antonio Junior Spoleto - spoletoantoniojr@gmail.com
+* Maria Concetta Vitale - cvitale819@gmail.com 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
