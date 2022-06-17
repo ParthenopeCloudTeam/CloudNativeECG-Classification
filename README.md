@@ -150,8 +150,11 @@ Clients will receive messages as soon as they are ready, without the necessity o
 * Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
 * Follow this guide (https://cloud.google.com/docs/authentication/production) to authenticate the application as a service account 
 * Go to the folder of each microservice and then run next commands. This will ensure that all the required libraries will be installed 
-  ```docker build -t /gcr.io/project_name/name_of_image .
-     docker push /gcr.io/project_name/name_of_image
+  ```
+    docker build -t /gcr.io/project_name/name_of_image .
+  ```
+     ```
+        docker push /gcr.io/project_name/name_of_image
      ```
 * Go to Google Pub/Sub and create ecg and nonNoise-ecg topics 
 * Go to Google Cloud Run and create the corrisponding services from the images you just pushed
