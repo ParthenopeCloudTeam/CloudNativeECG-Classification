@@ -84,18 +84,20 @@ We run benchmarks on both our cloud solution and a local hosted equivalent to as
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#proposed-models">Proposed Models</a></li>
-      </ul>
+    <ul>
+        <li>
+          <a href="#proposed-models">Proposed Models</a>
+        </li>
+    </ul>
       <ul>
         <li><a href="#cloud-technologies">Cloud Technologies</a></li>
-      </ul>
-      <ul>
-        <li><a href="#frameworks">Frameworks</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="#demo">Demo</a>
     </li>
     <li>
       <a href="#contacts">Contacts</a>
@@ -145,6 +147,11 @@ Clients will receive messages as soon as they are ready, without the necessity o
 </p>
 
 
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
 <!-- PREREQUISITES-->
 ### Prerequisites
 * Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
@@ -161,8 +168,7 @@ Clients will receive messages as soon as they are ready, without the necessity o
 * Follow this [guide](https://cloud.google.com/eventarc/docs/creating-triggers?hl=en) to create Eventarc triggers for m2 and m3 services
   - Select the event provider Pub/Sub and choose Message.Published event 
 
-<!-- GETTING STARTED -->
-## Getting Started
+### Configuration
 ```
 ├── M1
 │   ──> contains web interface src code
@@ -185,8 +191,17 @@ For m1 service we used :
   <li> Allow all traffic </li>
   <li> Authentication: Allow unauthenticated invocations </li>
 </ul> 
+Once the services are created, click on the generated m1 url to access to the web interface
 
-Once the services are created, click on the generated m1 url to access to the web interface<!-- CONTACT -->
+
+## Demo
+<p align="center">
+  <a href="https://github.com/ParthenopeCloudTeam/CloudNativeECG-Classification">
+    <img src="media/demo.gif" alt="Logo" width="900">
+  </a>
+</p>
+ 
+<!-- CONTACT -->
 ## Contacts
 
 * Marco Di Lullo - marcodilullo2714@gmail.com - [LinkedIn](https://www.linkedin.com/in/marco-di-lullo-32a9241a2) 
