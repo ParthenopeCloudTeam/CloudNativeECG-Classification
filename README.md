@@ -60,7 +60,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ParthenopeCloudTeam/CloudNativeECG-Classification">
-    <img src="media/banner.png" alt="Logo" width="700">
+    <img src="media/cloudnative_ecg_banner.gif" alt="Logo" width="700">
   </a>
 
   <h3 align="center">Abstract</h3>
