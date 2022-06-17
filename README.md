@@ -207,7 +207,8 @@ Once the services are created, click on the generated m1 url to access to the we
 * Marco Di Lullo - marcodilullo2714@gmail.com - [LinkedIn](https://www.linkedin.com/in/marco-di-lullo-32a9241a2) 
 * Salvatore Alberto Gicchino - g.salvatore93@gmail.com  - [LinkedIn](https://www.linkedin.com/in/salvatore-gicchino-189566238)
 * Antonio Junior Spoleto - spoletoantoniojr@gmail.com
-* Maria Concetta Vitale - cvitale819@gmail.com 
+* Maria Concetta Vitale - cvitale819@gmail.com
+* Gaetano Pagliarulo - gaetano.pagliarulo96@outlook.it 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
