@@ -176,8 +176,6 @@ Each folder is associated with a dockerfile and a file of requirements. Build ea
 * Antonio Junior Spoleto - spoletoantoniojr@gmail.com
 * Maria Concetta Vitale - cvitale819@gmail.com 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 We are grateful for the support of the University of Naples “Parthenope”, Department of Science and Technologies, Research Computing Facilities ([link](https://rcf.uniparthenope.it)) for assistance with the calculations carried out in this work.
