@@ -144,21 +144,22 @@ Clients will receive messages as soon as they are ready, without the necessity o
 <img src="media/Diagram.png" alt="Diagram" width="700">
 </p>
 
-### Frameworks
 
-* [Keras 2.3.1](https://www.tensorflow.org/)
-* [Tensorflow 1.14](https://www.tensorflow.org/)
-* [Python 3.6](https://www.python.org/downloads/release/python-360/)
-* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
-* [Gunicorn](https://gunicorn.org/)
-* [Google Cloud Run](https://cloud.google.com/)
-* [Docker](https://www.docker.com/)
-
+<!-- PREREQUISITES-->
+### Prerequisites
+* Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+* Follow this guide (https://cloud.google.com/docs/authentication/production) to authenticate the application as a service account 
+* Go to the folder of each microservice and then run next commands. This will ensure that all the required libraries will be installed 
+  ```docker build -t /gcr.io/project_name/name_of_image .
+     docker push /gcr.io/project_name/name_of_image
+     ```
+* Go to Google Pub/Sub and create ecg and nonNoise-ecg topics 
+* Go to Google Cloud Run and create the corrisponding services from the images you just pushed
+* Follow this guide (https://cloud.google.com/eventarc/docs/creating-triggers?hl=en) to create Eventarc triggers for m2 and m3 services
+  - Select the event provider Pub/Sub and choose Message.Published event 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-Each folder is associated with a dockerfile and a file of requirements. Build each microservice by running `docker build .` inside the respective folder.
- 
 ```
 ├── M1
 │   ──> contains web interface src code
@@ -167,8 +168,22 @@ Each folder is associated with a dockerfile and a file of requirements. Build ea
 ├── M3
 │   ──> contains Arrhythmia classifier src code
 ```
+The configuration we used for the m2 and m3 services is the following:
+<ul>
+  <li> 4 CPUs and 4 GBs of RAM </li>
+  <li> Number of maximum requests per container: 3 </li>
+  <li> Allow internal traffic and traffic from Cloud Load Balancing </li>
+  <li> Authentication: Require authentication </li>
+</ul> 
+For m1 service we used :
+<ul>
+  <li> 2 CPUs and 2 GBs of RAM </li>
+  <li> Number of maximum requests per container: 6 </li>
+  <li> Allow all traffic </li>
+  <li> Authentication: Allow unauthenticated invocations </li>
+</ul> 
 
-<!-- CONTACT -->
+Once the services are created, click on the generated m1 url to access to the web interface<!-- CONTACT -->
 ## Contacts
 
 * Marco Di Lullo - marcodilullo2714@gmail.com - [LinkedIn](https://www.linkedin.com/in/marco-di-lullo-32a9241a2) 
