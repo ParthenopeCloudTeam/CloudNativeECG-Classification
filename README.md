@@ -1,3 +1,33 @@
+<div id="top">
+  
+<div align="center">
+    <a href="https://docs.docker.com/">
+        <img src="https://img.shields.io/badge/Docker-20.10.16-blue.svg">
+    </a>
+      <a href="https://cloud.google.com">
+        <img src="https://img.shields.io/badge/GoogleCloudRun-red?logo=google">
+    </a>
+      <a href="https://www.python.org/downloads/release/python-360/">
+        <img src="https://img.shields.io/badge/Python-3.6-007d9c?logo=python"/>
+    </a>
+      <a href="https://www.tensorflow.org/">
+        <img src="https://img.shields.io/badge/Tensorflow-1.13-yellow?logo=tensorflow&logoColor=red">
+    </a>
+      <a href="https://keras.io/">
+        <img src="https://img.shields.io/badge/Keras-2.3.1-orange?logo=keras&logoColor=red">
+    </a>
+        <a href="https://flask.palletsprojects.com/en/2.1.x/">
+        <img src="https://img.shields.io/badge/Flask-2.1x-green">
+    </a>
+        <a href="https://gunicorn.org/">
+        <img src="https://img.shields.io/badge/Gunicorn-20.1.0-orange">
+    </a>
+    <a href="https://github.com/ParthenopeCloudTeam/CloudNativeECG-Classification">
+        <img src="https://img.shields.io/badge/Contributors-4-blue" alt="Contributors"/>
+    </a>
+  </div>
+</div>
+
 # Cloud Native Arrhythmia Classification
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
