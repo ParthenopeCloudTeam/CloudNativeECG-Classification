@@ -153,9 +153,9 @@ Clients will receive messages as soon as they are ready, without the necessity o
   ```
     docker build -t /gcr.io/project_name/name_of_image .
   ```
-     ```
-        docker push /gcr.io/project_name/name_of_image
-     ```
+  ```
+    docker push /gcr.io/project_name/name_of_image
+  ```
 * Go to Google Pub/Sub and create ecg and nonNoise-ecg topics 
 * Go to Google Cloud Run and create the corrisponding services from the images you just pushed
 * Follow this guide (https://cloud.google.com/eventarc/docs/creating-triggers?hl=en) to create Eventarc triggers for m2 and m3 services
